@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { getPokemonsApi, getPokemonDetailApi } from '../api/pokemon';
+import { getPokemonsApi, getPokemonDetailsByUrlApi } from '../api/pokemon';
 import PokemonList from '../components/PokemonList';
 
 export default function PokedexScreen() {
@@ -19,7 +19,7 @@ export default function PokedexScreen() {
       setNextUrl(response.next);
       const pokemonArray = [];
       for await (const pokemon of response.results) {
-        const pokemonDetails = await getPokemonDetailApi(pokemon.url);
+        const pokemonDetails = await getPokemonDetailsByUrlApi(pokemon.url);
         
         pokemonArray.push({
           id: pokemonDetails.id,

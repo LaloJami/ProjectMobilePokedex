@@ -23,7 +23,7 @@ export default function PokemonList(props) {
         isNext && (
           <ActivityIndicator
             size="large"
-            style={styles.spinner}
+            style={styles.spiner}
             color="#AEAEAE"
           />
         )
